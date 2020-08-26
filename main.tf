@@ -347,6 +347,15 @@ resource "kubernetes_deployment" "this" {
             }
           }
 
+          dynamic "env" {
+            for_each = var.envs
+
+            content {
+              name  = env.key
+              value = env.value
+            }
+          }
+
           volume_mount {
             name       = "ssl-certs"
             mount_path = "/etc/ssl/certs/ca-certificates.crt"

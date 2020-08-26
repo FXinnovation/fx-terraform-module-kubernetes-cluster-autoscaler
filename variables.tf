@@ -159,3 +159,9 @@ variable "ca_certificates_path" {
   description = "Absolute path of the ca-certificates.crt or ca-bundle.crt on the host machine."
   default     = "/etc/ssl/certs/ca-certificates.crt"
 }
+
+variable "envs" {
+  description = "Map of string representing environment variables defined in the application container."
+  type        = map(string)
+  default     = {}
+}

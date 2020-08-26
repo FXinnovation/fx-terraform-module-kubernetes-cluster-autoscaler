@@ -41,6 +41,7 @@ This module doesn't configure the autoscaler for a particular cloud provider. Pl
 | deployment\_template\_annotations | Map of annotations that will be applied on the deployment template. | `map` | `{}` | no |
 | deployment\_template\_labels | Map of labels that will be applied on the deployment template. | `map` | `{}` | no |
 | enabled | Whether or not the module is enabled. | `bool` | `true` | no |
+| envs | Map of string representing environment variables defined in the application container. | `map(string)` | `{}` | no |
 | image | Docker image to use for the cluster-autoscaler. | `string` | `"k8s.gcr.io/cluster-autoscaler"` | no |
 | image\_version | Docker image tag to use for the cluster-autoscaler. | `string` | n/a | yes |
 | labels | Map of labels to apply on all kubernetes resources. | `map` | `{}` | no |

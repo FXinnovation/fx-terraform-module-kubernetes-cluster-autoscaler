@@ -5,4 +5,7 @@ module "this" {
   command       = []
   arguments     = ["sleep", "3600"]
   image_version = "v1.14.7"
+  envs = {
+    foo = "bar"
+  }
 }
