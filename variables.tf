@@ -102,6 +102,7 @@ variable "service_account_annotations" {
   default     = {}
 }
 
+
 #####
 # Deployment
 #####
@@ -130,6 +131,7 @@ variable "deployment_template_annotations" {
   description = "Map of annotations that will be applied on the deployment template."
   default     = {}
 }
+
 
 #####
 # Application

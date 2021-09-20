@@ -13,6 +13,7 @@ locals {
   port = 8085
 }
 
+
 #####
 # Randoms
 #####
@@ -23,6 +24,7 @@ resource "random_string" "selector" {
   special = false
   length  = 8
 }
+
 
 #####
 # RBAC
@@ -262,6 +264,7 @@ resource "kubernetes_role_binding" "this" {
     namespace = element(concat(kubernetes_service_account.this.*.metadata.0.namespace, list("")), 0)
   }
 }
+
 
 #####
 # Deployment
