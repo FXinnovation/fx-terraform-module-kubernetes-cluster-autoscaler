@@ -12,3 +12,7 @@ provider "aws" {
     session_name = "FXTestSandbox"
   }
 }
+
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}

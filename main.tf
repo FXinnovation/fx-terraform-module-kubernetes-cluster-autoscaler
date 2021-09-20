@@ -340,11 +340,11 @@ resource "kubernetes_deployment" "this" {
           args    = var.arguments
 
           resources {
-            limits {
+            limits = {
               cpu    = "100m"
               memory = "300Mi"
             }
-            requests {
+            requests = {
               cpu    = "100m"
               memory = "300Mi"
             }
