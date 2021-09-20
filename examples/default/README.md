@@ -14,16 +14,25 @@ No requirements.
 
 ## Providers
 
-No provider.
+No providers.
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_this"></a> [this](#module\_this) | ../../ | n/a |
+
+## Resources
+
+No resources.
 
 ## Inputs
 
-No input.
+No inputs.
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| this | n/a |
-
+| <a name="output_this"></a> [this](#output\_this) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
