@@ -217,13 +217,13 @@ resource "kubernetes_cluster_role_binding" "this" {
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
-    name      = element(concat(kubernetes_cluster_role.this.*.metadata.0.name, list("")), 0)
+    name      = element(concat(kubernetes_cluster_role.this.*.metadata.0.name, [""]), 0)
   }
 
   subject {
     kind      = "ServiceAccount"
-    name      = element(concat(kubernetes_service_account.this.*.metadata.0.name, list("")), 0)
-    namespace = element(concat(kubernetes_service_account.this.*.metadata.0.namespace, list("")), 0)
+    name      = element(concat(kubernetes_service_account.this.*.metadata.0.name, [""]), 0)
+    namespace = element(concat(kubernetes_service_account.this.*.metadata.0.namespace, [""]), 0)
   }
 }
 
@@ -253,13 +253,13 @@ resource "kubernetes_role_binding" "this" {
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "Role"
-    name      = element(concat(kubernetes_role.this.*.metadata.0.name, list("")), 0)
+    name      = element(concat(kubernetes_role.this.*.metadata.0.name, [""]), 0)
   }
 
   subject {
     kind      = "ServiceAccount"
-    name      = element(concat(kubernetes_service_account.this.*.metadata.0.name, list("")), 0)
-    namespace = element(concat(kubernetes_service_account.this.*.metadata.0.namespace, list("")), 0)
+    name      = element(concat(kubernetes_service_account.this.*.metadata.0.name, [""]), 0)
+    namespace = element(concat(kubernetes_service_account.this.*.metadata.0.namespace, [""]), 0)
   }
 }
 
@@ -295,7 +295,7 @@ resource "kubernetes_deployment" "this" {
 
     selector {
       match_labels = {
-        selector = "cluster-autoscaler-${element(concat(random_string.selector.*.result, list("")), 0)}"
+        selector = "cluster-autoscaler-${element(concat(random_string.selector.*.result, [""]), 0)}"
       }
     }
 
@@ -310,7 +310,7 @@ resource "kubernetes_deployment" "this" {
           var.labels,
           var.deployment_template_labels,
           {
-            selector = "cluster-autoscaler-${element(concat(random_string.selector.*.result, list("")), 0)}"
+            selector = "cluster-autoscaler-${element(concat(random_string.selector.*.result, [""]), 0)}"
           }
         )
         annotations = merge(
@@ -325,7 +325,7 @@ resource "kubernetes_deployment" "this" {
       }
 
       spec {
-        service_account_name            = element(concat(kubernetes_service_account.this.*.metadata.0.name, list("")), 0)
+        service_account_name            = element(concat(kubernetes_service_account.this.*.metadata.0.name, [""]), 0)
         automount_service_account_token = true
 
         container {
